@@ -1,0 +1,186 @@
+  
+ {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<style>
+	/* Add any additional styles you need for the form */
+.search-container {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+/* Adjust the size and color of the search icon */
+.fa-search {
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+}
+
+/* If you want the icon to be inside the input field */
+.search-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+.search-button{
+	border: none;
+  outline: none;
+  background: white;
+}
+
+/* Optionally, you can add some hover effects to the search icon */
+.fa-search:hover {
+  color: #0d592e; /* Change to your desired hover color */
+}
+</style>
+
+
+  <body class="goto-here">
+		<div class="py-1 bg-success">
+    	<div class="container">
+    		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+	    		<div class="col-lg-12 d-block">
+		    		<div class="row d-flex">
+		    			<div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+						    <span class="text">Call us:+ 1235 2355 98</span>
+					    </div>
+					    <div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+						    <span class="text">Free Shipping above ₹499  </span>
+					    </div>
+					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+						    <span class="text">3-5 Business days delivery &amp; Free Returns</span>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+		  </div>
+    </div>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="/home"><img src="" alt="" srcset="/images/logo.png" width="80px" height="80px"></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+		
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="/productByPlant" class="nav-link">Plants</a></li>
+			  <li class="nav-item active"><a href="/productBySeed" class="nav-link">Seeds</a></li>
+			  <li class="nav-item active"><a href="/productByPot" class="nav-link">Pots And Planters</a></li>
+			  <li class="nav-item active"><a href="/productByPlantCare" class="nav-link">Plant Care</a></li>
+	          {{!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="/access-forbidden">Shop</a>
+              	<a class="dropdown-item" href="/access-forbidden">Wishlist</a>
+                <a class="dropdown-item" href="/access-forbidden">Single Product</a>
+                <a class="dropdown-item" href="/access-forbidden">Cart</a>
+                <a class="dropdown-item" href="/access-forbidden">Checkout</a>
+				
+				<a class="dropdown-item" href="/access-forbidden">Checkout</a>
+              </div>
+            </li> --}}
+	          
+	        
+	     
+ 
+
+<!-- Search form -->
+<li class="nav-item cta cta-colored">
+<form action="/searchProduct" method="GET" style="margin-top: 10px;">
+  <div class="search-container">
+    <input type="text" name="search" placeholder="Search products" value="{{searchTerm}}">
+    <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+  </div>
+</form>
+</li>
+ <li class="nav-item cta cta-colored">
+    <a href="/addtocart" class="nav-link">
+      <i class="fa fa-shopping-cart" style="color:rgb(2, 57, 30);font-size:20px"></i>
+	     {{#if (gt sumOfQuantities 0)}}
+      <span class="badge badge-warning">{{sumOfQuantities}}</span>
+	  {{/if}}
+    </a>
+  </li>
+
+			  {{!-- <li class="nav-item"><a href="/user-profile" class="nav-link">{{user.name}}</a></li> --}}
+			  {{!-- <li class="nav-item"><a href="/order-details" class="nav-link">My orders</a></li> --}}
+			   
+				 <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class='fas fa-user-alt' style='color:rgb(2, 57, 30);font-size:20px'></i>{{user.name}}</a>
+              {{!-- {{else}} --}}
+			  {{!-- <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class='fas fa-user-alt' style='font-size:30px'></i><span> Account</span> </a> --}}
+			
+			  <div class="dropdown-menu" aria-labelledby="dropdown04">
+				
+              	<a class="dropdown-item"href="/user-profile" class="nav-link">My Profile</a>
+              	{{!-- <a class="dropdown-item" href="/access-forbidden">Wishlist</a> --}}
+            <a class="dropdown-item" href="/order-details" class="nav-link">My orders</a>
+			 {{#if isLogin}}
+			<a class="dropdown-item" href="/logout" class="nav-link">Log Out</a>
+			 {{else}}
+                        <a class="dropdown-item" href="/login">Log In</a>
+                        {{!-- <a class="dropdown-item" href="/signup">Sign Up</a> --}}
+                        {{/if}}
+					
+               
+              </div>
+            </li>
+   
+    
+   
+    
+   
+			  
+			     {{!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class='fas fa-user-alt' style='font-size:30px'></i></a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item"href="/user-profile" class="nav-link">My Profile</a>
+              	<a class="dropdown-item" href="wishlist.html">Wishlist</a>
+            <a class="dropdown-item" href="/order-details" class="nav-link">My orders</a>
+			<a class="dropdown-item" href="/logout" class="nav-link">Log Out</a>
+               
+              </div>
+            </li> --}}
+{{!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="shop.html">Shop</a>
+              	<a class="dropdown-item" href="wishlist.html">Wishlist</a>
+                <a class="dropdown-item" href="product-single.html">Single Product</a>
+                <a class="dropdown-item" href="cart.html">Cart</a>
+                <a class="dropdown-item" href="checkout.html">Checkout</a>
+              </div>
+            </li> --}}
+			
+	        </ul>
+	      </div>
+
+		
+	    </div>
+	  </nav>
+	  <!-- Latest compiled and minified JavaScript -->
+	  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+	const clearInput = () => {
+  const input = document.getElementsByTagName("input")[0];
+  input.value = "";
+}
+
+const clearBtn = document.getElementById("clear-btn");
+clearBtn.addEventListener("click", clearInput);
+</script>

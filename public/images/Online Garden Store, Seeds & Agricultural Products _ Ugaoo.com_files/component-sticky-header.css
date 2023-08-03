@@ -1,0 +1,25 @@
+.shopify-section-header-sticky {
+  z-index: 100;
+  position: sticky;
+  top: 0;
+}
+
+.shopify-section-header-sticky .header-wrapper--border-bottom {
+  box-shadow: none;
+}
+
+.shopify-section-header-sticky:not(.shopify-section-header-hidden) .header::after {
+  content: '';
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  left: 5%;
+  z-index: -2;
+  height: 2rem;
+  border-radius: 100%;
+  box-shadow: 0 0 4rem rgba(var(--color-foreground), 0.2);
+}
+
+.shopify-section-header-hidden {
+  transform: translateY(calc(-100% - 0.1rem));
+}

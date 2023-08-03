@@ -1,0 +1,90 @@
+<main class="main">
+  <section class="mt-50 mb-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="table-responsive">
+            <table class="table shopping-summery text-center">
+              <thead>
+                <tr class="main-heading">
+                  <th scope="col" colspan="2">Product</th>
+                  <th scope="col">Price</th>
+                  <!-- <th scope="col">Stock Status</th> -->
+                  <th scope="col">Action</th>
+                  <th scope="col">Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{!-- {{#each wishlistProducts}} --}}
+                <tr>
+                  <td class="image product-thumbnail">
+                    {{!-- <img src="/uploads/{{this.wishListed.img[0]}}" alt="#"> --}}
+                  </td>
+                  <td class="product-des product-name">
+                    <h5 class="product-name"><a href="shop-product-right.html">this.wishListed.name</a></h5>
+                    <p class="font-xs">this.wishListed.description</p>
+                  </td>
+                  <td class="price" data-title="Price">
+                    <span>₹this.wishListed.price</span>
+                  </td>
+                  <!-- <td class="text-center" data-title="Stock">
+                    <span class="color3 font-weight-bold">In Stock</span>
+                  </td> -->
+                  <td class="text-right" data-title="Cart">
+                    <button class="btn btn-sm cool-button" onclick="addToCart('{{this.productId}}')">
+                      <i class="fi-rs-shopping-bag mr-2"></i>
+                    </button>
+                  </td>
+                  <td class="action" data-title="Remove" onclick="removeFromWishList('{{this.productId}}','{{this._id}}')">
+                    <a href="#"><i class="fi-rs-trash"></i></a>
+                  </td>
+                </tr>
+                {{!-- {{/each}} --}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  // add to cart ajax call
+  function addToCart(proId) {
+    $.ajax({
+      url: '/add-to-cart/' + proId,
+      method: 'POST',
+      data: {
+        proId: proId
+      },
+      success: (response) => {
+        if (response.status) {
+          location.reload()
+        }
+      }
+    })
+  }
+
+  // remove from wishList ajax call
+  function removeFromWishList(proId, wishListId) {
+    $.ajax({
+      url: '/remove-product-wishlist',
+      method: 'DELETE',
+      data: {
+        proId: proId,
+        wishListId: wishListId
+      },
+      success: (response) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Product removed from wishlist',
+          showConfirmButton: false,
+          timer: 3000
+        }).then(() => {
+          location.reload()
+        })
+      }
+    })
+  }
+</script>

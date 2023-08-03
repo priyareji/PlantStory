@@ -1,0 +1,197 @@
+<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/stylesheets/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/css/animate.css">
+    
+    <link rel="stylesheet" href="/stylesheets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/stylesheets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/stylesheets/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/stylesheets/css/aos.css">
+
+    <link rel="stylesheet" href="/stylesheets/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/stylesheets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/stylesheets/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="/stylesheets/css/flaticon.css">
+    <link rel="stylesheet" href="/stylesheets/css/icomoon.css">
+    <link rel="stylesheet" href="/stylesheets/css/style.css">
+	<link rel="stylesheet" href="/stylesheets/css/ionicons.min.css">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+  </head>
+  {{>user-header}}
+  
+    <!-- END nav -->
+
+
+
+ 
+
+	
+
+    <section class="ftco-section">
+    	
+		
+    	<div class="container">
+			
+    		<div class="row">
+				{{#each products}}
+    			<div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="product">
+						
+    					<a href="/single-page?id={{_id}}" class="img-prod"><img class="img-fluid" src="/uploads/{{image.[0]}}" alt="Colorlib Template">
+    						<span class="status">30%</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#">{{this.productname}}</a></h3>
+    						<div class="d-flex">
+    							<div class="pricing">
+		    						<p class="price"><span class="mr-2 price-dc">$699</span><span class="price-sale">${{this.price}}</span></p>
+		    					</div>
+	    					</div>
+	    					<div class="bottom-area d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="#"  class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    								<span><i class="ion-ios-menu"></i></span>
+	    							</a>
+	    							<a href=""  onclick="addToCart('{{product._id}}',event), showSweetAlert()" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    								<span><i class="fa fa-shopping-cart" style="color:rgb(225, 231, 228)"></i></span>
+	    							</a>
+								
+	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
+	    								<span><i class="ion-ios-heart"></i></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+						
+    				
+					</div>
+					
+    			</div>
+				{{/each}}
+    			{{!-- <div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="Colorlib Template">
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#">Strawberry</a></h3>
+    						<div class="d-flex">
+    							<div class="pricing">
+		    						<p class="price"><span>$120.00</span></p>
+		    					</div>
+	    					</div>
+    						<div class="bottom-area d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    								<span><i class="ion-ios-menu"></i></span>
+	    							</a>
+	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    								<span><i class="ion-ios-cart"></i></span>
+	    						 	</a>
+	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
+	    								<span><i class="ion-ios-heart"></i></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div> --}}	
+    		</div>
+			
+    	</div>
+		
+    </section>
+		
+	
+
+  
+    <hr>
+
+	
+
+	
+   
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="/javascripts/js/jquery.min.js"></script>
+  <script src="/javascripts/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/javascripts/js/popper.min.js"></script>
+  <script src="/javascripts/js/bootstrap.min.js"></script>
+  <script src="/javascripts/js/jquery.easing.1.3.js"></script>
+  <script src="/javascripts/js/jquery.waypoints.min.js"></script>
+  <script src="/javascripts/js/jquery.stellar.min.js"></script>
+  <script src="/javascripts/js/owl.carousel.min.js"></script>
+  <script src="/javascripts/js/jquery.magnific-popup.min.js"></script>
+  <script src="/javascripts/js/aos.js"></script>
+  <script src="/javascripts/js/jquery.animateNumber.min.js"></script>
+  <script src="/javascripts/js/bootstrap-datepicker.js"></script>
+  <script src="/javascripts/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="/javascripts/js/google-map.js"></script>
+  <script src="/javascripts/js/main.js"></script>
+  <script>
+
+function addToCart(productId, event) {
+  event.preventDefault(); // Prevent the default behavior of the <a> tag
+
+  // Send an AJAX request to the server
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '/add-cart', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // Handle the server response here (if needed)
+      swal("Success", "Product added to cart!", "success");
+    }
+  };
+  xhr.onerror = function() {
+  console.log("Request error");
+};
+
+  xhr.send(JSON.stringify({ productId: productId }));
+}
+
+
+
+	function showSweetAlert() {
+    console.log("clicked")
+  Swal.fire({
+    title: "Success",
+    text: "Product added to cart!",
+    icon: "success",
+    showCancelButton: false,
+    confirmButtonColor: "#000000",
+    confirmButtonText: "OK",
+    customClass: {
+      container: "swal-container",
+      title: "swal-title",
+      content: "swal-text",
+      confirmButton: "swal-button"
+    },
+    onOpen: () => {
+      // Set the text color to white
+      const swalContainer = document.querySelector(".swal-container");
+      swalContainer.style.color = "white";
+
+      // Remove the border from the OK button
+      const okButton = document.querySelector(".swal-button");
+      okButton.style.border = "none";
+    }
+  });
+}
+
+  </script>

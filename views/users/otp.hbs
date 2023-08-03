@@ -1,0 +1,42 @@
+<link href="/stylesheets/signup.css" rel="stylesheet" />
+<style>
+  
+  .otp-container{
+     display: flex;
+      justify-content: center;
+      align-items: center;
+      
+  }
+  .otp-logo{
+    display: block;
+      margin: 0 auto;
+      max-height: 81px;
+  }
+ </style>
+<div class="wrapper">
+  <div class="otp-container"><img class="otp-logo" src="/images/download.png" alt=""></div>
+  
+      <div class="title-text">
+        <div class="title reset-password">OTP verification</div>
+        
+      </div>
+ <div class="form-inner">
+         
+          <form action="/otp" method="post" class="login">
+            <div class="field">
+              <input type="number" name="mobile" placeholder="Enter mobile number" required>
+            </div>
+            
+            
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Send OTP">
+            </div>
+            
+            {{#if message}}
+                <p><span style="font-family: Arial, sans-serif; color: rgb(14, 15, 14); display:inline-block">{{message}}</span></p>
+
+          {{/if}}
+          </form>     
+</div>      
+</div>

@@ -1,0 +1,503 @@
+<style>
+    .container {
+        max-width: 1170px;
+        margin: 0 auto;
+    }
+
+    .card {
+        max-width: 960px;
+        margin: 0 auto;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        padding: 20px;
+        box-shadow: inset 0 0 6px rgba(0, 0, 1, 0.30);
+    }
+
+    .lh-condensed {
+        line-height: 1.25;
+    }
+
+    .btn-checkout {
+        background-color: #ffc107;
+        border-color: #ffc107;
+        transition: all 0.3s ease;
+    }
+
+    .btn-checkout:hover {
+        background-color: #d0a72e;
+        border-color: #d0a72e;
+        transform: scale(1.050);
+    }
+
+    /* Custom radio button */
+    .custom-control-input:checked~.custom-control-label::before {
+        background-color: #000;
+        border-color: #000;
+    }
+
+    .custom-control-input:checked~.custom-control-label::after {
+        background-color: #000;
+    }
+
+    /* ... your existing styles ... */
+
+    /* Custom validation styles */
+    .needs-validation input:valid,
+    .needs-validation textarea:valid {
+        border-color: #000;
+    }
+
+    .needs-validation input:invalid,
+    .needs-validation textarea:invalid {
+        border-color: #000000;
+    }
+
+    .needs-validation input:valid:focus,
+    .needs-validation textarea:valid:focus {
+        border-color: #000;
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+    }
+
+    .needs-validation input:invalid:focus,
+    .needs-validation textarea:invalid:focus {
+        border-color: #000000;
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+    }
+</style>
+{{>user-header}}
+<div class="card">
+    <div class="card-body">
+        <div class="container">
+
+            <div class="row">
+                {{#if products}}
+
+                <div class="col-md-4 order-md-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Your cart</span>
+                        <span class="badge badge-secondary badge-pill">{{this.totalCount}}</span>
+                    </h4>
+                    <ul class="list-group mb-3 sticky-top">
+                        {{#each products}}
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <img src="/uploads/{{this.image.[0]}}" class="img-fluid" alt="Product Image"
+                                    width="50px" />
+                                <h6 class="my-0">{{this.productname}} x {{this.quantity}}</h6>
+
+                            </div>
+                            <span class="text-muted">₹{{this.total}}</span>
+                        </li>
+                        {{/each}}
+                         <li class="list-group-item d-flex justify-content-between">
+                            <span>Total(INR)</span>
+                            <strong id="subTotal">₹{{this.total}}</strong>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <div class="text-success">
+                                <h6 class="my-0">Discount Amount</h6>
+                                <small id="codes" value="codes"></small>
+                            </div>
+                            <span class="text-success" id="couponOffer" value="couponOffer"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Amount To Pay</span>
+                            <strong id="total">₹{{this.subtotal}}</strong>
+                        </li>
+                    </ul>
+                      <span id="couponErr"></span>
+                    <div class="card p-2">
+                        <div class="input-group">
+                            
+                            <input type="text" class="form-control" name="coupon" id="couponCode" placeholder="Enter Coupon Code...">
+                            <div class="input-group-append">
+                                <button  class="btn btn-secondary" onclick="applyCoupon('{{this.total}}')">Redeem</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+                <div class="col-md-8 order-md-1">
+                    <h4 class="mb-3">Billing address</h4>
+                    <form class="needs-validation" novalidate="" id="checkout-form">
+
+
+  {{!-- <span class="text-success" id="couponOffer" value="couponOffer"></span> --}}
+<input type="hidden" id="couponOffer"  value="couponOffer"> 
+                        <div class="mb-3">
+                            <label for="username">Name</label>
+                            <div class="input-group">
+
+                                <input type="text" class="form-control" id="username" placeholder="Username" name="name"
+                                    required="" value="{{defaultAddress.name}}" readonly>
+                                <div class="invalid-feedback" style="width: 100%;"> Your username is required. </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Mobile </label>
+                            <input type="email" class="form-control" id="email" name="mobile" placeholder="Mobile"
+                                value="{{defaultAddress.mobile}}" readonly>
+                            <div class="invalid-feedback"> Please enter a valid email address for shipping updates.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="1234 Main St"
+                                value="{{defaultAddress.homeAddress}}" name="homeAddress" required="" readonly>
+                            <div class="invalid-feedback"> Please enter your shipping address. </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5 mb-3">
+                                <label for="country">City</label>
+                                <input type="text" class="form-control" id="address" placeholder="1234 Main St"
+                                    required="" value="{{defaultAddress.city}}" name="city" readonly>
+                                <div class="invalid-feedback"> Please select a valid country. </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="state">Street</label>
+                                <input type="text" class="form-control" id="address" placeholder="1234 Main St"
+                                    required="" value="{{defaultAddress.street}}" name="street" readonly>
+                                <div class="invalid-feedback"> Please provide a valid state. </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="zip">Postal Code</label>
+                                <input type="text" class="form-control" id="zip" placeholder="" required=""
+                                    value="{{defaultAddress.postalCode}}" name="postalCode" readonly>
+                                <div class="invalid-feedback"> Zip code required. </div>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <button class="btn btn-dark btn-lg btn-block" data-toggle="modal"
+                                    data-target="#changeaddress" type="button">Change Address</button>
+                            </div>
+                            {{!-- <div class="col-md-6 mb-3">
+                                <button class="btn btn-dark btn-lg btn-block" data-toggle="modal"
+                                    data-target="#addnewaddress" type="button">Add new Address</button>
+                            </div> --}}
+                        </div>
+{{!-- <input type="hidden" id="amountToPay" name="amountToPay" value="{{this.total}}"> --}}
+                        <hr class="mb-4">
+                        <h4 class="mb-3">Payment</h4>
+                        <input type="hidden" id="amountToPay" name="amountToPay" value="{{this.total}}">
+                        <div class="d-block my-3">
+                            <div class="custom-control custom-radio">
+                                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input"
+                                    checked="" required="" value="COD">
+                                <label class="custom-control-label" for="credit">COD</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input"
+                                    required="" value="ONLINE">
+                                <label class="custom-control-label" for="debit">ONLINE</label>
+                            </div>
+
+                        </div>
+
+
+                        <hr class="mb-4">
+                        <button class="btn btn-primary btn-lg btn-block btn-checkout" id="checkout-button"
+                            type="submit">Continue to
+                            checkout</button>
+                    </form>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!--Change Address modal--}}
+
+<div class="modal fade" id="changeaddress" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Change Address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form action="/change-address" method="post">
+                    {{#each filteredAddresses}}
+                    <div class="card border-dark mb-3" style="max-width: 18rem;">
+
+                        <div class="card-header">Address details</div>
+
+                        <div class="card-body text-dark">
+                            <input type="radio" name="addressId" value="{{this._id}}" id="address" checked>
+                            <p class="card-text">{{this.name}}</p>
+                            <p class="card-text">{{this.mobile}}</p>
+                            <p class="card-text">{{this.homeAddress}}</p>
+                            <p class="card-text">{{this.city}}</p>
+                            <p class="card-text">{{this.street}}</p>
+                            <p class="card-text">{{this.postalCode}}</p>
+                        </div>
+                    </div>
+                    {{/each}}
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-warning" style="color: #ffffff;">Save changes</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!-- Add address modal --}}
+
+<!--Add address Modal -->
+{{!-- <div class="modal fade" id="addnewaddress" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add new address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/add-new-address" method="post">
+                    <div class="form-group">
+                        <label for="edit-username">Name</label>
+                        <input type="text" class="form-control" name="name" id="edit-username">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Mobile</label>
+                        <input type="text" class="form-control" name="mobile" id="edit-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-phone">Address</label>
+                        <input type="text" class="form-control" name="homeAddress" id="edit-phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">City</label>
+                        <input type="text" class="form-control" name="city" id="edit-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Street</label>
+                        <input type="text" class="form-control" name="street" id="edit-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Postal code</label>
+                        <input type="number" class="form-control" name="postalCode" id="edit-email">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-warning add-button" style="color: #ffffff;">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    (function () {
+        'use strict'
+
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        }, false);
+    })();
+
+
+ function applyCoupon(total) {
+    console.log("clickedddddddd");
+    console.log(total, "total");
+    let couponCode = document.getElementById('couponCode').value;
+    console.log(couponCode, "couponCode");
+    $.ajax({
+        url: '/coupon-verify/' + couponCode,
+        method: 'GET',
+        success: (response) => {
+            if (response.status == true) {
+                $.ajax({
+                    url: '/apply-coupon/' + couponCode,
+                    method: 'GET',
+                    success: (response) => {
+                        console.log(response, '---');
+                        if (response.status == true) {
+                           // {{!-- const newTotal = total - discountAmount; --}}
+      //  {{!-- document.getElementById('total').innerText = '₹' + newTotal; --}}
+        
+                            document.getElementById('couponErr').style.color = '#19ff11';
+                            document.getElementById('couponErr').innerText = "Coupon Applied Successfully";
+                            const discountAmount = response.discountAmount;
+                            const newTotal=total - discountAmount;
+                            document.getElementById('amountToPay').value = newTotal; // Store the updated amount in the hidden input field
+                            document.getElementById('couponOffer').innerText = '₹' + discountAmount;
+                            document.getElementById('subTotal').innerText = '₹' + (total - discountAmount);
+                            document.getElementById('total').innerText = '₹' + (total - discountAmount);
+                            document.getElementById('total1').value = total - discountAmount;
+                            document.getElementById('amount').innerText = '₹' + (total - discountAmount);
+                            document.getElementById('codes').innerText = couponCode;
+                        } else {
+                            document.getElementById('couponErr').style.color = "#ff0707";
+                            document.getElementById('couponErr').innerText = response.message;
+                        }
+                    }
+                });
+            } else {
+                document.getElementById('couponErr').style.color = "#ff0707";
+                document.getElementById('couponErr').innerText = response.message;
+
+                setTimeout(function() {
+                    location.reload();
+                }, 5000);
+            }
+        }
+    });
+}
+
+
+
+</script>
+<!--
+/*========================================================================================================================
+================================================ SCRIPT FOR CHECKOUT PAGE ==============================================
+========================================================================================================================
+*/ --->
+<!-- Script for using Razorpay Payment gateway functions -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<!-- JavaScript to make Ajax call for Checkout Button - called by checkout button in place-order page--------->
+<script>
+
+
+    $(document).ready(function () {
+
+        $('#checkout-button').click(function (e) {
+
+            e.preventDefault(); // To prevent default method of submitting form as here Ajax should be used here to submit the form based on the two different payment methods
+ console.log("Checkout Button Ajax call");
+let couponCode = document.getElementById('couponCode').value;
+    console.log(couponCode, "couponCode");
+           
+
+            $.ajax({
+
+                url: '/place-order',
+
+                method: 'POST',
+
+                data: $('#checkout-form').serialize(), // Here serialize function is used to get all the data from the form into the data feild of ajax call
+
+                success: (response) => {
+
+                    if (response.COD_CHECKOUT) {
+                        location.href = '/orderPlaced'
+                    } else if (response.ONLINE_CHECKOUT) {
+                        makeRazorpayPayment(response);
+                    } else {
+                        location.href = '/orderFailed'
+                        // If any of the above payment didn't happen, Should create a failed order page to user and display
+                    }
+
+                }
+
+            })
+
+        })
+
+        function makeRazorpayPayment(serverOrderData) {
+            let razorpayKeyId = serverOrderData.razorpayKeyId;
+            let orderDetails = serverOrderData.orderDetails;
+            let userDetails = serverOrderData.userDetails;
+            let userOrderRequestData = serverOrderData.userOrderRequestData;
+
+            let paymentDataToRazorpayServer = {
+                "key": razorpayKeyId,
+                "amount": total,
+                "currency": "INR",
+                "name": "Plant story",
+                "description": "Test Transaction",
+                "order_id": orderDetails.id,
+                "handler": function (response) {
+                    verifyPayment(response, orderDetails);
+                },
+                "prefill": {
+                    "name": userDetails.name,
+                    "email": userDetails.email,
+                    "contact": userOrderRequestData.mobile
+                },
+                "notes": {
+                    "Customer Address": userOrderRequestData.homeAddress
+                }
+            };
+
+            var razorpayPayment = new Razorpay(paymentDataToRazorpayServer);
+            razorpayPayment.open();
+
+            // If the payment failed for any reason, calling the pre-defined function "on" in Razorpay module using the object of Razorpay
+        }
+
+         function verifyPayment(razorpayServerPaymentResponse, serverOrderDetails) {
+            $.ajax({
+                url: '/verify-payment',
+                data: {
+
+                    razorpayServerPaymentResponse,
+
+                    serverOrderDetails
+
+                },
+                method: 'POST',
+
+                success: (response) => {
+                    console.log(response)
+                    if (response.status) {
+                        
+                        location.href = '/orderPlaced'
+
+                    } else {
+                        location.href = '/orderFailed'
+                    }
+                }
+            })
+        }
+
+    })
+
+
+    
+
+
+
+
+   
+
+
+</script>

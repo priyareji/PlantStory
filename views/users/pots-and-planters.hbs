@@ -1,0 +1,569 @@
+<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/stylesheets/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/css/animate.css">
+    
+    <link rel="stylesheet" href="/stylesheets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/stylesheets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/stylesheets/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/stylesheets/css/aos.css">
+
+    <link rel="stylesheet" href="/stylesheets/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/stylesheets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/stylesheets/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="/stylesheets/css/flaticon.css">
+    <link rel="stylesheet" href="/stylesheets/css/icomoon.css">
+    <link rel="stylesheet" href="/stylesheets/css/style.css">
+	<link rel="stylesheet" href="/stylesheets/css/ionicons.min.css">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+<style>
+
+  label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    select {
+      padding: 5px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 5px 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      background-color: #149253;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .slider-container {
+  width: 300px;
+  margin: 20px;
+}
+
+.price-range-slider {
+  display: flex;
+  align-items: center;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #ddd;
+  outline: none;
+  margin: 0 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #149253;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #149253;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #ccc;
+  height: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: #ccc;
+  height: 5px;
+}
+
+#selectedRange {
+  text-align: center;
+  font-weight: bold;
+}
+
+
+</style>
+
+  </head>
+  {{>user-header}}
+  
+    <!-- END nav -->
+
+ <div class="hero-wrap hero-bread" style="background-image: url('/images/Sub_Category_Banners_Planters__Ceramic_Desk_f4d6346e-e250-4c05-946a-5d8ab8d9a170\ \(2\).webp');background-size: contain;height:348px; width:100%">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="/home"></a></span> <span></span></p>
+            <h1 class="mb-0 bread"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+
+	
+
+      <section class="ftco-section">
+    	<div class="container">
+				<div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	{{!-- <span class="subheading">Featured Products</span> --}}
+			
+            <h1 class="subheading">Plants</h1>
+            <p>Welcome to our online nursery, where you can find a wide variety of natural plants available for purchase. We specialize in providing a seamless plant online shopping experience, making it convenient for you to buy plants online and have them delivered right to your doorstep. </p>
+          </div>
+        </div>   		
+    	</div>
+{{!-- 		
+    <form action="/searchProduct" method="GET">
+  <input type="text" name="search" placeholder="Search products" value="{{searchTerm}}">
+  <button type="submit">Search</button>
+</form> --}}
+
+{{!-- <div class="dropdown" style="margin-left: 1339px;">
+  <button class="dropbtn">Sort By</button>
+  <div class="dropdown-content">
+  <a href="#">Alphabatically,A-Z</a>
+  <a href="#">Alphabatically,Z-A</a>
+  <a href="#">Price,Low to High</a>
+  <a href="#">Price,High to Low</a>
+  </div>
+</div> --}}
+<div>
+    <form action="/productByPot" method="get">
+      {{!-- <label for="sort">Sort by:</label> --}}
+      <select name="sort" id="sort">
+        <option value="">Sort By</option>
+        <option value="price_asc">Price (Low to High)</option>
+        <option value="price_desc">Price (High to Low)</option>
+      </select>
+      <button type="submit">Sort</button>
+    </form>
+  </div>
+<form action="/productByPot" method="get" style="margin-left:800px">
+      {{!-- <label for="category">Filter by Category:</label>
+      <input type="text" id="category" name="category"> --}}
+      {{!-- <br>
+      <label for="minPrice">Minimum Price:</label>
+      <input type="number" id="minPrice" name="minPrice">
+      
+      <label for="maxPrice">Maximum Price:</label>
+      <input type="number" id="maxPrice" name="maxPrice"> --}}
+    <label for="price">Price Range:</label>
+<div class="price-range-slider">
+  <input type="range" id="minPrice" name="minPrice" min="0" max="1000" step="10">
+  <input type="range" id="maxPrice" name="maxPrice" min="0" max="1000" step="10">
+    <button type="submit">Filter</button>
+</div>
+<p id="selectedRange"></p>
+
+      
+    
+    </form>
+
+
+  
+    	<div class="container">
+			
+    		<div class="row">
+				{{#each products}}
+    			<div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="product">
+						
+    					<a href="/single-page?id={{_id}}" class="img-prod"><img class="img-fluid" src="/uploads/{{image.[0]}}" alt="Colorlib Template">
+    						<span class="status">30%</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#">{{this.productname}}</a></h3>
+    						<div class="d-flex">
+    							<div class="pricing">
+		    						<p class="price"><span class="mr-2 price-dc">$699</span><span class="price-sale">${{this.price}}</span></p>
+		    					</div>
+	    					</div>
+	    					<div class="bottom-area d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="#"  class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    								<span><i class="ion-ios-menu"></i></span>
+	    							</a>
+	    							<a href=""  onclick="addToCart('{{product._id}}',event), showSweetAlert()" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    								<span><i class="fa fa-shopping-cart" style="color:rgb(225, 231, 228)"></i></span>
+	    							</a>
+								
+	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
+	    								<span><i class="ion-ios-heart"></i></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+						
+    				
+					</div>
+					
+    			</div>
+				{{/each}}
+    			{{!-- <div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="Colorlib Template">
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#">Strawberry</a></h3>
+    						<div class="d-flex">
+    							<div class="pricing">
+		    						<p class="price"><span>$120.00</span></p>
+		    					</div>
+	    					</div>
+    						<div class="bottom-area d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    								<span><i class="ion-ios-menu"></i></span>
+	    							</a>
+	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    								<span><i class="ion-ios-cart"></i></span>
+	    						 	</a>
+	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
+	    								<span><i class="ion-ios-heart"></i></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div> --}}	
+    		</div>
+			
+    	</div>
+		
+    </section>
+		
+		<section class="ftco-section img" style="background-image: url(images/bg_3.jpg);">
+    	<div class="container">
+				<div class="row justify-content-end">
+          <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+          	<span class="subheading">Best Price For You</span>
+            <h2 class="mb-4">Deal of the day</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            <h3><a href="#">Spinach</a></h3>
+            <span class="price">$10 <a href="#">now $5 only</a></span>
+            <div id="timer" class="d-flex mt-5">
+						  <div class="time" id="days"></div>
+						  <div class="time pl-3" id="hours"></div>
+						  <div class="time pl-3" id="minutes"></div>
+						  <div class="time pl-3" id="seconds"></div>
+						</div>
+          </div>
+        </div>   		
+    	</div>
+    </section>
+
+    <section class="ftco-section testimony-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+          	<span class="subheading">Testimony</span>
+            <h2 class="mb-4">Our satisfied customer says</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel">
+              <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                  </div>
+                  <div class="text text-center">
+                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Garreth Smith</p>
+                    <span class="position">Marketing Manager</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                  </div>
+                  <div class="text text-center">
+                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Garreth Smith</p>
+                    <span class="position">Interface Designer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                  </div>
+                  <div class="text text-center">
+                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Garreth Smith</p>
+                    <span class="position">UI Designer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                  </div>
+                  <div class="text text-center">
+                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Garreth Smith</p>
+                    <span class="position">Web Developer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                  </div>
+                  <div class="text text-center">
+                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Garreth Smith</p>
+                    <span class="position">System Analyst</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+		<section class="ftco-section ftco-partner">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-sm ftco-animate">
+    				<a href="#" class="partner"><img src="images/partner-1.png" class="img-fluid" alt="Colorlib Template"></a>
+    			</div>
+    			<div class="col-sm ftco-animate">
+    				<a href="#" class="partner"><img src="images/partner-2.png" class="img-fluid" alt="Colorlib Template"></a>
+    			</div>
+    			<div class="col-sm ftco-animate">
+    				<a href="#" class="partner"><img src="images/partner-3.png" class="img-fluid" alt="Colorlib Template"></a>
+    			</div>
+    			<div class="col-sm ftco-animate">
+    				<a href="#" class="partner"><img src="images/partner-4.png" class="img-fluid" alt="Colorlib Template"></a>
+    			</div>
+    			<div class="col-sm ftco-animate">
+    				<a href="#" class="partner"><img src="images/partner-5.png" class="img-fluid" alt="Colorlib Template"></a>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
+		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+      <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+          <div class="col-md-6">
+          	<h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
+          	<span>Get e-mail updates about our latest shops and special offers</span>
+          </div>
+          <div class="col-md-6 d-flex align-items-center">
+            <form action="#" class="subscribe-form">
+              <div class="form-group d-flex">
+                <input type="text" class="form-control" placeholder="Enter email address">
+                <input type="submit" value="Subscribe" class="submit px-3">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="ftco-footer ftco-section">
+      <div class="container">
+      	<div class="row">
+      		<div class="mouse">
+						<a href="#" class="mouse-icon">
+							<div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+						</a>
+					</div>
+      	</div>
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Vegefoods</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Menu</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Shop</a></li>
+                <li><a href="#" class="py-2 d-block">About</a></li>
+                <li><a href="#" class="py-2 d-block">Journal</a></li>
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Help</h2>
+              <div class="d-flex">
+	              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+	                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+	                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+	                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+	                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+	              </ul>
+	              <ul class="list-unstyled">
+	                <li><a href="#" class="py-2 d-block">FAQs</a></li>
+	                <li><a href="#" class="py-2 d-block">Contact</a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="/javascripts/js/jquery.min.js"></script>
+  <script src="/javascripts/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/javascripts/js/popper.min.js"></script>
+  <script src="/javascripts/js/bootstrap.min.js"></script>
+  <script src="/javascripts/js/jquery.easing.1.3.js"></script>
+  <script src="/javascripts/js/jquery.waypoints.min.js"></script>
+  <script src="/javascripts/js/jquery.stellar.min.js"></script>
+  <script src="/javascripts/js/owl.carousel.min.js"></script>
+  <script src="/javascripts/js/jquery.magnific-popup.min.js"></script>
+  <script src="/javascripts/js/aos.js"></script>
+  <script src="/javascripts/js/jquery.animateNumber.min.js"></script>
+  <script src="/javascripts/js/bootstrap-datepicker.js"></script>
+  <script src="/javascripts/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="/javascripts/js/google-map.js"></script>
+  <script src="/javascripts/js/main.js"></script>
+  <script>
+
+function addToCart(productId, event) {
+  event.preventDefault(); // Prevent the default behavior of the <a> tag
+
+  // Send an AJAX request to the server
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '/add-cart', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // Handle the server response here (if needed)
+      swal("Success", "Product added to cart!", "success");
+    }
+  };
+  xhr.onerror = function() {
+  console.log("Request error");
+};
+
+  xhr.send(JSON.stringify({ productId: productId }));
+}
+
+
+
+	function showSweetAlert() {
+    console.log("clicked")
+  Swal.fire({
+    title: "Success",
+    text: "Product added to cart!",
+    icon: "success",
+    showCancelButton: false,
+    confirmButtonColor: "#000000",
+    confirmButtonText: "OK",
+    customClass: {
+      container: "swal-container",
+      title: "swal-title",
+      content: "swal-text",
+      confirmButton: "swal-button"
+    },
+    onOpen: () => {
+      // Set the text color to white
+      const swalContainer = document.querySelector(".swal-container");
+      swalContainer.style.color = "white";
+
+      // Remove the border from the OK button
+      const okButton = document.querySelector(".swal-button");
+      okButton.style.border = "none";
+    }
+  });
+}
+
+  </script>
+  <script>
+    const minPriceInput = document.getElementById('minPrice');
+const maxPriceInput = document.getElementById('maxPrice');
+const selectedRange = document.getElementById('selectedRange');
+
+// Update the selected range display when the slider values change
+minPriceInput.addEventListener('input', updateSelectedRange);
+maxPriceInput.addEventListener('input', updateSelectedRange);
+
+function updateSelectedRange() {
+  const minPrice = minPriceInput.value;
+  const maxPrice = maxPriceInput.value;
+  selectedRange.textContent = `$${minPrice} - $${maxPrice}`;
+}
+
+  </script>

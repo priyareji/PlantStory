@@ -1,0 +1,121 @@
+<style>
+    .align-middle {
+        vertical-align: middle;
+    }
+</style>
+<!-- Sidebar Start -->
+        {{>adminheader}}
+        <!-- Sidebar End -->
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+             {{>admin-navbar}}
+<div class="container-fluid pt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-right mb-3">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModalCenter">
+                    Add Category
+                </button>
+            </div>
+
+            {{!-- <div class="bg-light rounded p-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="mb-4" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 1.2em; margin-bottom: 0;">Category List</h6>
+                    <a href="/admin/unlisted-category" class="btn btn-outline-danger m-2">Unlisted Category</a>
+                </div> --}}
+                <div class="table-responsive">
+                    <table class="table w-100">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                
+                                {{!-- <th scope="col">BRAND</th> --}}
+                               
+                                <th scope="col">CATEGORY</th>
+                                {{!-- <th scope="col">IMAGE</th> --}}
+                                {{!-- <th scope="col">OPTIONS</th> --}}
+                                
+                                <th scope="col">ACTION</th>
+                                 {{!-- <th scope="col">ACTION</th> --}}
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                          
+                            {{#each category}}
+                            <tr>
+                                <th class="align-middle" scope="row">{{this._id}}</th>
+                                
+                                 <td class="align-middle">{{category}}</td>
+                                 {{!-- <td class="align-middle"><img src="/uploads/{{image}}" alt="{{images}}" width="50px" height="50px"></td> --}}
+                                  <td>
+                                        {{#if is_activate }}
+                      <a href="/admin/categoryInactivate?id={{this._id}}" class="btn btn-sucess" onclick="return confirm('Are you sure you want to Unlist {{this.name}}?')">Active</a>
+                        {{else}}
+                        <a href="/admin/categoryActivate?id={{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to Unlist {{this.name}}?')">Inactive</a>
+                         {{/if}}
+                                    </td> 
+                                    
+
+                          {{!-- <td>
+                         <a href="/admin/categoryInactivate?id={{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to Unlist {{this.name}}?')">Unlist</a>
+                                </td>          --}}
+
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Category</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/admin/category" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+ {{#if error}}
+                  <div class="alert alert-danger" role="alert">
+                    
+                    {{error}}
+                  </div>
+                  <script>
+                    // Show the error message in an alert box
+                    window.onload = function() {
+                      setTimeout(function() {
+                        alert("This Category is already exit");
+                      }, 100);
+                    }
+                  </script>
+                {{/if}}
+
+                     <div class="mb-3">
+                         <label for="category" class="form-label">Category</label>
+                        <input type="text" name="category" class="form-control" required>
+                    </div>
+              
+                {{!-- <div class="mb-3">
+                         <label for="image" class="form-label">IMAGE</label>
+                        <input type="file" name="image" class="form-control" required>
+                    </div> --}}
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

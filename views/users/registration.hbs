@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/stylesheets/registration.css">
+<div class="container">
+       <img src="/images/logo.png"
+                    style="width: 100px; height:85px" alt="logo">
+                    
+      <!--------------------Form ---------------------->
+      <form action="" id="form" method="post" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter Your Name"
+            required
+            minlength="3"
+            maxlength="15"
+          />
+        </div>
+        <div class="form-groups">
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            name="mobile"
+            placeholder="Enter Your Phone"
+            required
+            pattern="[0-9]{10}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter Your Email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password1">Your Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="password"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,12}$"
+            placeholder="Enter Your Password"
+            title="your password must have an alphanumeric character, @#$%&()*,length 8-12"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password1">Confirm Password</label>
+          <input
+            type="text"
+            name="password2"
+            id="confirmPassword"
+            class="password"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,12}$"
+            placeholder="Re-enter Your Password"
+            required
+          />
+        </div>
+        <button type="submit" id="submit" value="submit">Register Now</button>
+
+
+
+      
+        
+      </form>
+       {{#if  message}}
+        <p style="color:green;">{{message}}</p>
+                                {{/if}}  
+      <!---------Form end------------------>
+      <!------Meassage container----------->
+      {{!-- <div class="message-container">
+        <h3 id="message">All The Fields Are Required</h3>
+      </div> --}}
+
+    </div>
+     <script src="/javascripts/registration.js"></script>
+
+     <script>
+   document.getElementById("form").addEventListener("submit", function(event) {
+  var password = document.getElementById("password").value;
+  var confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (password !== confirmPassword) {
+    event.preventDefault(); // Prevent form submission
+    alert("Passwords do not match!");
+  }
+});
+</script>

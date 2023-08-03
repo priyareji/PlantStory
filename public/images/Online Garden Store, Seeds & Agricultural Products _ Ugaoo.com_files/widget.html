@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- saved from url=(0113)https://social-login.oxiapps.com/widget?site=ugaoo-store.myshopify.com&vt=928400&parenturl=https://www.ugaoo.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link href="./bootstrap3.3.5.css" rel="stylesheet">
+	<link rel="stylesheet" href="./font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="./custom.css" rel="stylesheet">
+
+    <script type="text/javascript" src="./jquery-1.11.0.min.js.download"></script><script type="text/javascript">
+        var userVars = {
+                useragent:navigator.userAgent
+            };
+    </script>
+    	<style>
+        .sl-vertical a.social_login {
+            text-align: left;
+            padding-left: 20px;
+            height: 40px;
+            display: block;
+            background-size: 40px 40px;
+            border-radius: 5px;
+            color: white;
+            font-family: "Merriweather Sans", sans-serif;
+            font-size: 14px;
+            margin-bottom: 2px;
+            -webkit-font-smoothing: antialiased;
+            line-height: 40px;
+        }
+        .sl-horizontal a.social_login {
+            padding: 0px;
+            line-height: 40px;
+            width: 40px;
+            border-radius: 5px;
+            border: 0px solid transparent;
+        }
+        a.social_login.facebook {
+            border-color: #2d5073;
+            background-color: #124ac0;
+        }
+        a.social_login.google {
+            border-color: #c23321;
+            background-color: #dd4b39;
+        }
+        a.social_login.twitter {
+            border-color: #2795e9;
+            background-color: #55acee;
+        }
+        a.social_login.linkedin {
+            border-color: #005983;
+            background-color: #007bb6;
+        }
+        a.social_login.apple {
+            border-color: #000;
+            background-color: #000000;
+        }
+        a.social_login.instagram {
+            border-color: #4080b5;
+            background-color: #3f729b;
+        }
+        a.social_login.amazon {
+            border-color: #cc7a00;
+            background-color: #ff9900;
+        }
+        .sl-vertical .oxi_icon {
+            float: right;
+            height: 40px;
+            line-height: 40px;
+            width: 40px;
+            text-align: center;
+            font-size: 24px;
+            border-radius:0px 5px 5px 0px;
+            background-color:rgba(255, 255, 255, 0.1)
+        }
+        .sl-vertical.oxi_icon_left a {
+            padding-left:0px;
+        }
+        .sl-vertical.oxi_icon_left i {
+            float:left;
+            margin-right: 15px;
+            border-radius: 5px 0 0 5px;
+        }
+        .sl-vertical.oxi_icon_center {
+        }
+        .sl-vertical.oxi_icon_center a {
+            text-align:center;
+        }
+        .sl-vertical.oxi_icon_center span {
+            vertical-align:middle;
+        }
+        .sl-vertical.oxi_icon_center i {
+            float:none;
+            background:none;
+            vertical-align:middle;
+        }
+        .sl-horizontal li {
+            margin: 5px 2px 5px 0px;
+        }
+        .sl-horizontal li:last-child {
+            margin: 5px 0px;
+        }
+        .sl-horizontal.social-wrap {
+            display:inline-block;
+        }
+	</style>
+	<style>
+		 .sl-vertical.oxi_icon_center {
+                display: flex;
+                padding-left: 0px;
+                margin: 10px; 
+               
+            }
+            .social_login {
+                    background: transparent;
+                    color: blue;
+                   margin: 3px 1px;
+                   border: 1px solid black;
+                   text-align: center; 
+                   padding: 0 20px;
+                  border-radius: 5px;
+            }
+            	</style>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1116.0" data-gr-ext-installed="">
+    <div id="error_msg"></div>
+    <div id="loginInProgress"></div>
+        <div class="sl-container">
+        <div class="sl-wrapper">
+            <div class="sl-vertical social-wrap oxi_icon_center" style="padding-left:0px;">
+                
+
+        <a class="social_login facebook" url="/auth/facebook?shop=ugaoo-store.myshopify.com&amp;parenturl=https://www.ugaoo.com/" href="https://social-login.oxiapps.com/auth/facebook?shop=ugaoo-store.myshopify.com&amp;parenturl=https://www.ugaoo.com/">
+            <i class="fa fa-facebook oxi_icon oxi_icon_facebook"></i>
+                            <span>Facebook</span>
+        </a>
+        
+
+        <a class="social_login google" url="/auth/google?shop=ugaoo-store.myshopify.com&amp;parenturl=https://www.ugaoo.com/" href="https://social-login.oxiapps.com/auth/google?shop=ugaoo-store.myshopify.com&amp;parenturl=https://www.ugaoo.com/">
+            <i class="fa fa-google oxi_icon oxi_icon_google"></i>
+                            <span>Google</span>
+        </a>
+                    </div>
+        </div>
+    </div>
+    <iframe id="social_login" name="social_login" style="display:none;top:-9999px;left:-1000px;width:1px;height:1px;" src="./saved_resource.html"></iframe>
+
+    <script>
+        function isIEorEDGE(){
+            return navigator.appName == 'Microsoft Internet Explorer' || (navigator.appName == "Netscape" && navigator.appVersion.indexOf('Edge') > -1) || (navigator.appName == "Netscape" && navigator.appVersion.indexOf('Trident/') > -1);
+        }
+        if (isIEorEDGE()) {
+            //document.write('<script type="text/javascript" src="https://social-login.oxiapps.com/js/vendor/jquery-ie-1.11.0.min.js"><\/script>');
+            var sNew = document.createElement("script");
+            sNew.type = "text/javascript";
+            sNew.src = "//cdn.shopify.com/s/files/1/1335/5701/t/12/assets/jquery-ie-1.11.0.min.js?v=63905522747657060491652733298";
+            var s0 = document.getElementsByTagName('script')[0];
+            s0.parentNode.insertBefore(sNew, s0);
+        } else {
+            //document.write('<script type="text/javascript" charset="iso-8859-1" src="https://social-login.oxiapps.com/js/vendor/jquery-1.11.0.min.js"><\/script>');
+            var sNew = document.createElement("script");
+            //sNew.charset = "iso-8859-1";
+            sNew.type = "text/javascript";
+            sNew.src = "//cdn.shopify.com/s/files/1/1335/5701/t/12/assets/jquery-1.11.0.min.js?v=76199200980675605031652732738";
+            var s0 = document.getElementsByTagName('script')[0];
+            s0.parentNode.insertBefore(sNew, s0);
+        }
+    </script>
+
+    <script>
+        function createCookie(name,value,days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime()+(days*24*60*60*1000));
+                var expires = "; expires="+date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = name+"="+value+expires+"; path=/;samesite=none;secure";
+            //document.cookie = name+"="+value+expires+"; path=/;";
+        }
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+        function eraseCookie(name) {
+            createCookie(name,"",-1);
+        }
+        eraseCookie('checkout_shop');
+        eraseCookie('oxi_referrer');
+        eraseCookie('parenturl');
+        eraseCookie('checkout_url');
+        //localStorage.setItem("shop_domain", '');
+
+        createCookie('checkout_shop','ugaoo-store.myshopify.com',7);
+        createCookie('oxi_referrer',document.referrer,7);
+        createCookie('parenturl','https://www.ugaoo.com/',7);
+                var errorPresent = readCookie('emailError');
+        if (errorPresent) {
+            $('#error_msg').html('<div class="alert alert-danger social_login_error fade in">'+readCookie('emailError')+'</div>');
+            eraseCookie('emailError');
+        }
+        function resize_social_login_frame() {
+            var hostName = getHostName(document.referrer);
+            var http = getHttpHttps(document.referrer);
+            var body = document.body,
+                html = document.documentElement,
+                //height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+                //height = Math.max(body.offsetHeight, html.scrollHeight, html.offsetHeight);
+                height = body.scrollHeight;
+            if (parent.postMessage && height > 0) {
+                parent.postMessage("height:"+height, http+"://"+hostName);
+            }
+        }
+        function getHostName(url) {
+            if(url.search(/^https?\:\/\//) != -1)
+                url = url.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i, "");
+            else
+                url = url.match(/^([^\/?#]+)(?:[\/?#]|$)/i, "");
+            return url[1];
+        }
+        function getHttpHttps(url) {
+            if(url.search(/^https\:\/\//) != -1){
+                return "https";
+            } else {
+                return "http";
+            }
+        }
+
+
+
+        function displayMessage (evt) {
+			try {
+            	var x = JSON.parse(evt.data);
+				window.parent.postMessage('oxiSocialLoginTrigger', "*");
+
+	            if(x.action=='open_login_popup') {
+                	oxiPopupWindow.location.href='http://ugaoo-store.myshopify.com'+x.url;
+				}else if (x.action=='loginSuccess') {
+					window.parent.postMessage('oxiSocialLoginSuccess', "*");
+					var shop_url = (window.location != window.parent.location) ? document.referrer : document.location.href;
+					shop_url = getHostName(shop_url);
+					if( x.url.indexOf('http')==0 ) {
+						parent.window.location = x.url;
+					} else {
+						parent.window.location = 'https://'+shop_url+x.url;
+					}
+				} else if (x.action=='openChallenge') {
+                    if ( unescape(readCookie('shop_domain')) === null || unescape(readCookie('shop_domain')) === undefined ) {
+                        parent.window.location = unescape(readCookie('shop_domain'))+'/challenge';
+                    } else if ( x.shop_domain != "" ) {
+                        parent.window.location = x.shop_domain+'/challenge';
+                    }
+					//parent.window.location = 'https://'+localStorage.getItem("shop_domain")+'/challenge';
+				} else if (x.action == 'closePopup') {
+					oxiPopupWindow.close();
+					parent.window.location = x.url;
+				} else if (x.action =='multiPassLogin') {
+					postLoginMultipass(x.url)
+				} else if (x.action =='normalLogin') {
+					postLogin(x.user.email, x.user.password, x.user.shop, x.user.target, x.user.redirect_url);
+				}
+			} catch (e) {
+			}
+        }
+        if (window.addEventListener) {
+            window.addEventListener("message", displayMessage, false);
+        }
+        else {
+            window.attachEvent("onmessage", displayMessage);
+        }
+    </script>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+  div.grammarly-desktop-integration {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select:none;
+    user-select:none;
+  }
+
+  div.grammarly-desktop-integration:before {
+    content: attr(data-content);
+  }
+</style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

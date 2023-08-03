@@ -1,0 +1,7 @@
+# ignore node_modules directory
+node_modules/
+
+# ignore environment variables
+.env
+# ignore sales report generated
+order.pdf

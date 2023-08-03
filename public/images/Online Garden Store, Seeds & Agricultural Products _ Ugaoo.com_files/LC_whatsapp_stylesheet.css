@@ -1,0 +1,152 @@
+.WhatsAppButton__root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .landbot-whatsapp__button {
+    border-radius: 6px;
+    box-shadow: 0 4px 9px #00000024;
+    border: none;
+    background: #02e777;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Lato, sans-serif;
+    font-size: 14px;
+    transition: all ease-in-out 100ms;
+  
+    text-decoration: none;
+  }
+  
+  .landbot-whatsapp__button:hover {
+    cursor: pointer;
+    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.14);
+  }
+  
+  .whatsapp__poweredBy {
+    display: flex;
+    position: absolute;
+    bottom: 2px;
+    font-family: Lato, sans-serif;
+    font-size: 14px;
+    background-color: #fff !important;
+    border-radius: 10px;
+    -moz-box-shadow: 0px 0px 4px 0px rgb(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 20%);
+    box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 20%);
+    width: intrinsic;
+    width: -moz-max-content;
+    width: -webkit-max-content;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    color: #1d2129;
+    padding: 12px;
+    text-decoration: none;
+    max-width: 248px;
+    height: auto !important;
+  }
+  
+  .whatsapp__poweredByTopLeft {
+    bottom: 0px;
+    left: 0px;
+  }
+  
+  .whatsapp__poweredByTopRight {
+    bottom: 0px;
+    right: 0px;
+  }
+  
+  .whatsapp__poweredBySideLeft:after {
+    transform: translateX(-165px) rotate(45deg);
+    -webkit-transform: translateX(-165px) rotate(45deg);
+    -moz-transform: translateX(-165px) rotate(45deg);
+    -o-transform: translateX(-165px) rotate(45deg);
+    -ms-transform: translateX(-165px) rotate(45deg);
+    -moz-box-shadow: rgb(0 0 0 / 20%) -2px 2px 2px -2px;
+    -webkit-box-shadow: rgb(0 0 0 / 20%) -2px 2px 2px -2px;
+    box-shadow: rgb(0 0 0 / 20%) -2px 2px 2px -2px;
+    display: block;
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    bottom: 10px;
+    background-color: #fff;
+    left: 100%;
+  }
+  
+  .whatsapp__poweredBySideLefty:after {
+    transform: translateX(-6px) rotate(45deg);
+    -webkit-transform: translateX(-6px) rotate(45deg);
+    -moz-transform: translateX(-6px) rotate(45deg);
+    -o-transform: translateX(-6px) rotate(45deg);
+    -ms-transform: translateX(-6px) rotate(45deg);
+    -moz-box-shadow: rgb(0, 0, 0, 0.2) 2px -2px 4px 0px;
+    -webkit-box-shadow: rgb(0 0 0 / 20%) 2px -2px 4px 0px;
+    box-shadow: rgb(0 0 0 / 20%) 2px -2px 4px 0px;
+    display: block;
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    bottom: 10px;
+    background-color: #fff;
+    left: 100%;
+  }
+  
+  .whatsapp__poweredByTopRight:after {
+    transform: translateX(-20px) rotate(45deg);
+    -webkit-transform: translateX(-20px) rotate(45deg);
+    -moz-transform: translateX(-20px) rotate(45deg);
+    -o-transform: translateX(-20px) rotate(45deg);
+    -ms-transform: translateX(-20px) rotate(45deg);
+    -moz-box-shadow: rgb(0 0 0 / 20%) 2px 2px 4px 0px;
+    -webkit-box-shadow: rgb(0 0 0 / 20%) 2px 2px 4px 0px;
+    box-shadow: rgb(0 0 0 / 20%) 2px 2px 4px 0px;
+    display: block;
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    bottom: -4px;
+    background-color: #fff;
+    left: 100%;
+  }
+  
+  .whatsapp__poweredByTopLeft:after {
+    transform: translateX(-20px) rotate(45deg);
+    -webkit-transform: translateX(-145px) rotate(45deg);
+    -moz-transform: translateX(-20px) rotate(45deg);
+    -o-transform: translateX(-20px) rotate(45deg);
+    -ms-transform: translateX(-20px) rotate(45deg);
+    -moz-box-shadow: rgb(0 0 0 / 20%) 2px 2px 4px 0px;
+    -webkit-box-shadow: rgb(0 0 0 / 20%) 2px 2px 4px 0px;
+    box-shadow: rgb(0 0 0 / 20%) 2px 2px 4px 0px;
+    display: block;
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    bottom: -4px;
+    background-color: #fff;
+    left: 100%;
+  }
+  
+  .closePopUp {
+    width: 12px !important;
+    float: right;
+    height: 12px !important;
+    margin-right: -4px !important;
+    margin-top: -10px !important;
+    border-radius: 50% !important;
+    z-index: 99999;
+  }
+  
+  .closePopUp:hover {
+    cursor: pointer;
+    transform: scale(1.2) rotateZ(90deg);
+  }
+  

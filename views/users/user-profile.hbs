@@ -1,0 +1,178 @@
+
+  <!-- Add your CSS stylesheet here or link to an external CSS file -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    section {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-card {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .edit-profile-btn {
+      margin-top: 10px;
+    }
+
+    .profile-details {
+      margin-top: 20px;
+    }
+
+    .profile-details h6 {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .profile-details p {
+      margin: 0;
+    }
+
+    .address-card {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .address-card h6 {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .address-card p {
+      margin: 0;
+    }
+
+    /* Add more custom CSS styles here */
+  </style>
+
+
+<body>
+  {{>user-header}}
+  <section>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item"><a href="/home">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="profile-card">
+            <div class="text-center">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                class="profile-image">
+              <h5 class="my-3">{{user.name}}</h5>
+              <button type="button" class="btn btn-success edit-profile-btn" data-toggle="modal"
+                data-target="#exampleModalCenter">Edit Profile</button>
+              <a href="/address" class="btn btn-outline btn-primary edit-profile-btn">Manage Address</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="profile-card">
+            <div class="profile-details">
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6>Full Name</h6>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted">{{user.name}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6>Email</h6>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted">{{user.email}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6>Phone</h6>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted">{{user.mobile}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6>Mobile</h6>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted">(098) 765-4321</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="address-card">
+            <h6>Contact Information</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <h6>Address</h6>
+                  <p class="text-muted">{{defaultAddress.homeAddress}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <h6>City</h6>
+                  <p class="text-muted">{{defaultAddress.city}}</p>
+                </div>
+                <div class="col-lg-12">
+                  <h6>Street</h6>
+                  <p class="text-muted">{{defaultAddress.street}}</p>
+                </div>
+                <div class="col-lg-12">
+                  <h6>Postal Code</h6>
+                  <p class="text-muted">{{defaultAddress.postalCode}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <!-- Modal content and form remains unchanged -->
+      </div>
+    </div>
+  </section>
+</body>
+

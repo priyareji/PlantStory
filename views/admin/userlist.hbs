@@ -1,0 +1,56 @@
+{{>adminheader}}
+
+ <div class="content">
+    {{>admin-navbar}}
+  <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h2 class="mb-0">Manage User</h2>
+                        <a href="/admin/blocked-userlist">Block Users</a>
+                        
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">  
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mobile</th>
+                                    <th scope="col">Verified</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 {{#each user}}
+                                <tr>
+                                   
+                                    <td>{{name}}</td>
+                                    <td>{{email}}</td>
+                                    <td>{{mobile}}</td>
+                                     <td>
+                                        {{#if is_verified }}
+                        <button class="btn btn-success text-white"> Verified</button>
+                        {{else}}
+                         <button class="btn btn-warning text-white">Not Verified</button>
+                         {{/if}}
+                                    </td> 
+                                    
+                                   <td>
+                                     <a  class=" btn btn-primary text-white"
+                                     href="/admin/edit-user?id={{_id}}">Edit</a>
+                                    {{!-- {{#if is_blocked}}
+                                    <button class="btn btn-danger text-white">Block</button>
+                                    {{else}}
+                                   <button class="btn btn-success text-white">UnBlock</button>
+                                   {{/if}} --}}
+                                    <a  class=" btn btn-danger text-white"
+                                     href="/admin/block-user?id={{_id}}">Block</a>
+                                    </td>
+                                      </tr>
+                                   {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>

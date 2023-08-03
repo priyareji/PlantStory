@@ -1,0 +1,424 @@
+@font-face {
+    font-family: GT-Walsheim-Regular;
+        src: url(../fonts/GT-Walsheim-Regular.ttf);
+}
+body {
+	margin:0;
+background-color:transparent;
+}
+.has-error > .control-label {
+    font-size: 10px;
+    font-weight: 500;
+}
+.bg-critical {
+    background-color: #dd4b39 !important;
+}
+.bg-major {
+    background-color: #e9897c !important;
+}
+.bg-minor {
+    background-color: #ffcc00 !important;
+    color:#000;
+}
+
+.navbar-nav > li.active {
+    /*background-color:#31749b*/
+    background-color:#04242f;
+}
+
+.box-solid {
+    box-shadow:0 0px 0 1px #DEE3EA;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #063f52;
+    border-color: #063f52;
+}
+
+.facebook_box {
+    background-color:#3B5998;
+}
+.facebook_box > h4  > a {
+    color:#FFF;
+}
+.facebook_box>h4>a:hover {
+    background:none !important;
+}
+.facebook_box>h4>a>i {
+    font-size:18px;padding-right:20px;
+}
+
+
+.google_box {
+    background-color:#dd4b39;
+}
+.google_box > h4  > a {
+    color:#FFF;
+}
+.google_box>h4>a:hover {
+    background:none !important;
+}
+.google_box>h4>a>i {
+    font-size:18px;padding-right:20px;
+}
+
+
+.twitter_box {
+    background-color:#55acee;
+}
+.twitter_box > h4  > a {
+    color:#FFF;
+}
+.twitter_box>h4>a:hover {
+    background:none !important;
+}
+.twitter_box>h4>a>i {
+    font-size:18px;padding-right:20px;
+}
+
+
+.instagram_box {
+    background-color:#3f729b;
+}
+.instagram_box > h4  > a {
+    color:#FFF;
+}
+.instagram_box>h4>a:hover {
+    background:none !important;
+}
+.instagram_box>h4>a>i {
+    font-size:18px;padding-right:20px;
+}
+
+.amazon_box {
+    background-color:#ff9900;
+}
+.amazon_box > h4  > a {
+    color:#FFF;
+}
+.amazon_box>h4>a:hover {
+    background:none !important;
+}
+.amazon_box>h4>a>i {
+    font-size:18px;padding-right:20px;
+}
+.apple_box {
+    background-color:#000;
+}
+.apple_box > h4  > a {
+    color:#FFF;
+}
+.apple_box>h4>a:hover {
+    background:none !important;
+}
+.apple_box>h4>a>i {
+    font-size:18px;padding-right:20px;
+}
+.linkedin_box {
+    background-color:#007bb6;
+}
+.linkedin_box > h4  > a {
+    color:#FFF;
+}
+.linkedin_box>h4>a:hover {
+    background:none !important;
+}
+.linkedin_box>h4>a>i {
+    font-size:18px;padding-right:20px;
+}
+
+/****************Social Login Front Specific********/
+a.oxi_social_login, a.social_login {
+    text-decoration:none;
+    cursor:pointer;
+}
+.alert-danger.oxi_social_login_error, .alert-danger.social_login_error {
+    margin-bottom:5px;
+    padding:8px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+}
+
+#loginInProgress {
+    display:none;
+    opacity:0.7;
+    background-color:#FFF;
+    width: 100%;
+    height: 100%;
+    /*background: white;*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index:10001;
+    overflow-y: auto;
+    text-align:center;
+}
+.sl-container {
+    display:inline-block;
+    width:100%;
+    background-color:transparent;
+    border-width:0px;
+    padding:0;
+    max-width: 100%;
+}
+
+.btn-social>:first-child {
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+
+button#facebook {
+    border-color: #2d5073;
+    background-color: #3b5998;
+    background-image: url(/images/icons/facebook-icon.png);
+}
+button#facebook:hover {
+    color: #fff;
+    background-color: #2d4373;
+    border-color: rgba(0,0,0,0.2);
+}
+button#google {
+    border-color: #c23321;
+    background-color: #dd4b39;
+    background-image: url(/images/icons/google-plus-icon.png);
+}
+button#google:hover {
+    color: #fff;
+    background-color: #c23321;
+    border-color: rgba(0,0,0,0.2);
+}
+button#twitter {        
+    border-color: #2795e9;
+    background-color: #55acee;
+    background-image: url(/images/icons/twitter-icon.png);
+}
+button#twitter:hover {
+    color: #fff;
+    background-color: #2795e9;
+    border-color: rgba(0,0,0,0.2);
+}
+button#linkedin {
+    border-color: #005983;
+    background-color: #007bb6;                
+    background-image: url(/images/icons/linkedin-icon.png);
+}
+button#linkedin:hover {
+    color: #fff;
+    background-color: #005983;
+    border-color: rgba(0,0,0,0.2);
+}
+button#instagram {
+    border-color: #4080b5;
+    background-color: #3f729b;
+    background-image: url(/images/icons/instagram-icon.png);
+}
+button#instagram:hover {
+    color: #fff;
+    background-color: #4080b5;
+    border-color: rgba(0,0,0,0.2);
+}
+button#amazon {        
+    border-color: #cc7a00;
+    background-color: #ff9900;                
+    background-image: url(/images/icons/amazon-icon.png);
+}
+button#amazon:hover {
+    color: #fff;
+    background-color: #cc7a00;
+    border-color: rgba(0,0,0,0.2);
+}
+a.social_login:hover {
+	opacity: 0.8;
+}
+
+a.facebook {
+    color:#FFF;
+    border-color: #2d5073;
+    background-color: #3b5998;
+}
+a.facebook:hover {
+    color: #fff;
+    background-color: #2d4373;
+    border-color: rgba(0,0,0,0.2);
+}
+a.google {
+    color:#FFF;
+    border-color: #c23321;
+    background-color: #dd4b39;
+}
+a.google:hover {
+    color: #fff;
+    background-color: #c23321;
+    border-color: rgba(0,0,0,0.2);
+}
+a.twitter {
+    color:#FFF;
+    border-color: #2795e9;
+    background-color: #55acee;
+}
+a.twitter:hover {
+    color: #fff;
+    background-color: #2795e9;
+    border-color: rgba(0,0,0,0.2);
+}
+a.linkedin {
+    color:#FFF;
+    border-color: #005983;
+    background-color: #007bb6;
+}
+a.linkedin:hover {
+    color: #fff;
+    background-color: #005983;
+    border-color: rgba(0,0,0,0.2);
+}
+a.apple {
+	color: #FFF;
+}
+a.instagram {
+    color:#FFF;
+    border-color: #4080b5;
+    background-color: #3f729b;
+}
+a.instagram:hover {
+    color: #fff;
+    background-color: #4080b5;
+    border-color: rgba(0,0,0,0.2);
+}
+a.amazon { 
+    color:#FFF;
+    border-color: #cc7a00;
+    background-color: #ff9900;
+}
+a.amazon:hover {
+    color: #fff;
+    background-color: #cc7a00;
+    border-color: rgba(0,0,0,0.2);
+}
+
+div.social-wrap button {
+    text-align:left;
+    padding-left: 20px;
+    padding-right: 50px;
+    height: 40px;
+    background: none;
+    border: none;
+    display: block;
+    background-size: 40px 40px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    color: white;
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 14px;
+    margin-bottom: 8px;
+    width: 100%;
+    border-bottom: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    /*box-shadow: 0 4px 2px -2px gray;*/
+    -webkit-font-smoothing: antialiased;
+}
+
+ul.sl-horizontal {
+    display:block;
+    float:left;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+ul.sl-horizontal li {
+    display: block;
+    float: left;
+}
+
+ul.sl-horizontal li a.size48 {
+    width: 48px;
+}
+
+.sl-wrapper {
+	text-align:center;
+}
+.sl-horizontal a.social_login {
+	line-height: 25px;
+}
+
+.loading_wait:after {
+    content: ' .';
+    animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+    0%, 12.5% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    37.5% {
+        text-shadow: .5em 0;
+    }
+    50% {
+        text-shadow: .5em 0, 1em 0;
+    }
+    62.5% {
+        text-shadow: .5em 0, 1em 0, 1.5em 0;
+    }
+    75% {
+        text-shadow: .5em 0, 1em 0, 1.5em 0, 2em 0;
+    }
+    87.5%, 100%{
+        text-shadow: .5em 0, 1em 0, 1.5em 0, 2em 0, 2.5em;
+    }
+}
+.onoffswitch {
+    position: relative; width: 115px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ENABLED";
+    padding-left: 10px;
+    background-color: #34A7C1; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "DISABLED";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 6px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 82px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}

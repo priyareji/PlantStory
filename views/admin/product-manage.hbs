@@ -1,0 +1,235 @@
+<style>
+    .align-middle {
+        vertical-align: middle;
+    }
+</style>
+{{>adminheader}}
+
+ <div class="content">
+    {{>admin-navbar}}
+<div class="container-fluid pt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-right mb-3">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModalCenter">
+                    Add product
+                </button>
+            </div>
+
+            {{!-- <div class="bg-light rounded p-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="mb-4" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 1.2em; margin-bottom: 0;">Category List</h6>
+                    <a href="/admin/unlisted-category" class="btn btn-outline-danger m-2">Unlisted Category</a>
+                </div> --}}
+                <div class="table-responsive">
+                    <table class="table w-100">
+                        <thead>
+                            <tr>
+                                <th scope="col">SL NO</th>
+                                
+                                {{!-- <th scope="col">BRAND</th> --}}
+                                <th scope="col">PRODUCT-NAME</th> 
+                                {{!-- <th scope="col">SIZE</th> --}}
+                                <th scope="col">CATEGORY</th>
+                                <th scope="col">PRICE</th>
+                                {{!-- <th scope="col">IN-STOCK</th> --}}
+                                 <th scope="col">IMAGES</th>
+                                  <th scope="col">Stock</th>
+                                 
+                                  {{!-- <th scope="col">STOCK</th> --}}
+
+                                <th scope="col">Edit</th>
+                                
+                                 <th scope="col">ACTION</th> 
+                                 {{!-- <th scope="col">ACTION</th> --}}
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                          
+                            {{#each products}}
+                            <tr>
+                                <th class="align-middle" scope="row">{{serialNumber}}</th>
+                                {{!-- <td class="align-middle">{{brand}}</td> --}}
+                                <td class="align-middle">{{productname}}</td>
+                                {{!-- <td class="align-middle">{{size}}</td> --}}
+                                 <td class="align-middle">{{category}}</td>
+                                <td class="align-middle">{{price}}</td>
+                                <td class="align-middle"><img src="/uploads/{{image.[0]}}" alt="{{image}}" width="50px" height="50px"></td>
+                                <td class="align-middle">{{stock}}</td>
+                                {{!-- <td class="align-middle">{{stock}}</td> --}}
+                                 <td class="align-middle">
+                                    <a href="/admin/editproduct?id={{_id}}" class="btn btn-primary m-2">Edit</a>
+
+                                     
+                                {{!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                  data-bs-target="#editProductCenter">
+                                     Edit 
+                                   </button> --}}
+            
+                                </td>
+                                <td class="align-middle">
+                                 {{#if is_activate}}
+                                    <a href="/admin/productInactivate?id={{this._id}}" class="btn btn-success" onclick="return confirm('Are you sure you want to Inactivate {{this.name}}?')">Active</a>
+                                {{else}}
+                                 <a href="/admin/productActivate?id={{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to Activate {{this.name}}?')">Inactive</a>
+                               {{/if}}
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Products</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/admin/product" method="post" enctype="multipart/form-data" >
+                <div class="modal-body">
+                   
+                    {{!-- <div class="mb-3">
+                         <label for="brand" class="form-label">BRAND</label>
+                        <input type="text" name="brand" class="form-control" required>
+                    </div> --}}
+                     <div class="mb-3">
+                         <label for="productname" class="form-label">PRODUCT NAME</label>
+                        <input type="text" name="productname" class="form-control" required>
+                    </div>
+                    {{!-- <div class="mb-3">
+                         <label for="product-name" class="form-label">PRODUCT NAME</label>
+                        <input type="text" name="productname" class="form-control" required>
+                    </div> --}}
+                     <div class="mb-3">
+                         <label for="category" class="form-label">Category</label>
+                         <select name="category" class="form-control" required>
+                            {{#each categories}}
+                                
+                                    {{!-- Skip rendering the option for unlisted categories --}}
+                             
+                                    <option value="{{category}}">{{category}}</option>
+                              
+                            {{/each}} 
+                            {{!-- <option value="plants">plants</option> --}}
+                        </select>
+                    </div>
+
+                      <div class="mb-3">
+                         <label for="description" class="form-label">DESCRIPTION</label>
+                        <input type="text" name="description" class="form-control" required>
+                    </div>
+                     <div class="mb-3">
+                         <label for="price" class="form-label">PRICE</label>
+                        <input type="number" name="price" class="form-control" required>
+                    </div>
+                     <div class="mb-3">
+                         <label for="image" class="form-label">IMAGE</label>
+                        <input type="file" name="image" class="form-control" multiple required>
+                    </div>
+                  
+                     {{!-- <div class="mb-3">
+                         <label for="stock" class="form-label">SIZE</label>
+                        <input type="text" name="size" class="form-control" required>
+                    </div> --}}
+                    <div class="mb-3">
+                         <label for="stock" class="form-label">STOCK</label>
+                        <input type="text" name="stock" class="form-control" required>
+                    </div>
+                </div>
+                
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="editProductCenter" tabindex="-1" role="dialog" aria-labelledby="editProductCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProductLongTitle">Add Products</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/admin/product" method="post" enctype="multipart/form-data" >
+                <div class="modal-body">
+                                               {{#each products}}
+                    {{!-- <div class="mb-3">
+                         <label for="brand" class="form-label">BRAND</label>
+                        <input type="text" name="brand" class="form-control" required>
+                    </div> --}}
+                     <div class="mb-3">
+                         <label for="productname" class="form-label">PRODUCT NAME</label>
+                        <input type="text" name="productname" value="{{productname}}" class="form-control" required>
+                    </div>
+                    {{!-- <div class="mb-3">
+                         <label for="product-name" class="form-label">PRODUCT NAME</label>
+                        <input type="text" name="productname" class="form-control" required>
+                    </div> --}}
+                     <div class="mb-3">
+                         <label for="category" class="form-label">Category</label>
+                         <select name="category"  value="{{category}}" class="form-control" required>
+                            {{#each categories}}
+                                
+                                    {{!-- Skip rendering the option for unlisted categories --}}
+                             
+                                    <option value="{{category}}">{{category}}</option>
+                              
+                            {{/each}} 
+                            {{!-- <option value="plants">plants</option> --}}
+                        </select>
+                    </div>
+
+                      <div class="mb-3">
+                         <label for="description" class="form-label">DESCRIPTION</label>
+                        <input type="text" name="description" value="{{description}}" class="form-control" required>
+                    </div>
+                     <div class="mb-3">
+                         <label for="price" class="form-label">PRICE</label>
+                        <input type="number" name="price" value="{{price}}" class="form-control" required>
+                    </div>
+                     <div class="mb-3">
+                         <label for="image" class="form-label">IMAGE</label>
+                        <input type="file" name="image" value="{{imag}}e" class="form-control" multiple required>
+                    </div>
+                  
+                     {{!-- <div class="mb-3">
+                         <label for="stock" class="form-label">SIZE</label>
+                        <input type="text" name="size" class="form-control" required>
+                    </div> --}}
+                    <div class="mb-3">
+                         <label for="stock" class="form-label">STOCK</label>
+                        <input type="text" name="stock" value="{{stock}}" class="form-control" required>
+                    </div>
+                                                {{/each}}
+                </div>
+                
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
