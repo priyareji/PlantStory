@@ -143,8 +143,22 @@
         <h4 class="mt-2 ms-2">Total:₹{{total.[0].totalAmount}}</h4>
         <a href="/admin/salesReport" class="btn btn "
             style="background-color: #ffd900;color: #000000; font-size: x-small;">Download Sales Report</a>
+             <a href="#"  
+              style="background-color: #ffd900;color: #000000; font-size: x-small;" 
+              class="btn btn" id="download-csv-btn3" >
+                                  DOWNLOAD  CSV
+                                   </a>
 
-
+{{!-- <div class="col-lg-4 col-md-6 d-flex align-items-center">
+                            <div class="text-center">
+                                <a href="#" class="btn btn-primary" id="download-csv-btn3" >
+                                  DOWNLOAD  CSV
+                                   </a>
+                                   <a href="#" class="btn btn-primary" id="download-pdf-btn3"   >
+                                    DOWNLOAD   PDF
+                                   </a>                          
+                            </div>
+                        </div> --}}
         {{#if order}}
         <div class="sales-form mt-5">
 
@@ -193,4 +207,75 @@
     </div>
 </div> 
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.5.0/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
+<script>
+  // Function to convert table data to CSV format
+  function convertToCSV() {
+    const tableBody = document.getElementById("myTable");
+    const rows = Array.from(myTable.getElementsByTagName("tr"));
+    const csvRows = [];
+
+    rows.forEach((row) => {
+      const cells = Array.from(row.getElementsByTagName("td"));
+      const csvValues = cells.map((cell) => cell.innerText);
+      const csvRow = csvValues.join(",");
+      csvRows.push(csvRow);
+    });
+
+    return csvRows.join("\n");
+  }
+
+  // Function to download table data as CSV
+  function downloadCSV() {
+    console.log("haiii----------------")
+    const csvContent = "data:text/csv;charset=utf-8," + encodeURIComponent(convertToCSV());
+    const link = document.createElement("a");
+    link.href = csvContent;
+    link.download = "table_data.csv";
+    link.click();
+  }
+
+  
+  // Event listeners for the download buttons
+  document.getElementById("download-csv-btn3").addEventListener("click", function () {
+    console.log("clickeddddddddddddddddddddddddddddddddd")
+    swal({
+      title: "Downloading CSV...",
+      icon: "success",
+      buttons: false,
+      timer: 1500,
+    });
+    downloadCSV();
+  });
+  // Event listeners for the download buttons - Repeat the same for other buttons if needed
+//  {{!-- document.getElementById("download-csv-btn3").addEventListener("click", function () {
+ //   swal({
+  //    title: "Downloading CSV...",
+  //    icon: "success",
+  //    buttons: false,
+  //    timer: 1500,
+  //  });
+  //  downloadCSV();
+ // }); --}}
+
+  document.getElementById("download-pdf-btn2").addEventListener("click", function () {
+    swal({
+      title: "Downloading PDF...",
+      icon: "success",
+      buttons: false,
+      timer: 1500,
+    });
+    downloadPDF();
+  });
+</script>
