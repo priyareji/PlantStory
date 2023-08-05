@@ -81,7 +81,7 @@ const logout = async (req, res) => {
   try {
     delete req.session.adminId;
     delete req.session.is_admin;
-    res.redirect("/");
+    res.redirect("admin/login");
   } catch (error) {
     throw new Error(error.message);
     res.redirect("/error");

@@ -16,9 +16,9 @@
           <header class="border-bottom mb-4 pb-4">
             <div class="row">
               <div class="col-lg-5 col-6">
-                <div class="input-group">
+                {{!-- <div class="input-group">
                   <input type="text" placeholder="Search..." class="form-control">
-                </div>
+                </div> --}}
               </div>
               <div class="col-lg-5 col-6 d-flex justify-content-end">
                 <button class="btn btn-primary btn-lg btn-block ml-50px" onclick="location.href='/admin/add-coupon';">
@@ -38,7 +38,7 @@
         <th>Min Purchase Amount</th>
         <th>Discount %</th>
         <th>Max Discount Amount</th>
-        <th>Usage COunt</th>
+        {{!-- <th>Usage COunt</th> --}}
         <th>Expiry Date</th>
         <th class="text-end">Action</th>
       </tr>
@@ -52,7 +52,7 @@
                                     <td>{{minPurchase}}</td>
                                     <td>{{minDiscountPercentage}}%</td>
                                     <td>{{maxDiscountValue}}</td>
-                                    <td>{{useageCount}}</td>
+                                    {{!-- <td>{{useageCount}}</td> --}}
                                      <td>
                                         {{validityFormatted }}
                                     </td> 
@@ -77,7 +77,7 @@
       </div> <!-- row end// -->
     </div> <!-- card-body // -->
   </div> <!-- card end// -->
-  <div class="pagination-area mt-30 mb-50">
+  {{!-- <div class="pagination-area mt-30 mb-50">
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-start">
         <li class="page-item active"><a class="page-link" href="#">01</a></li>
@@ -88,7 +88,7 @@
         <li class="page-item"><a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a></li>
       </ul>
     </nav>
-  </div>
+  </div> --}}
 </section>
 </div>
 <script>
